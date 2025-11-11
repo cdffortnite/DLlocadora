@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DL Locadora</title>
     <style>
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
       }
 
@@ -18,14 +20,44 @@
       body {
         display: flex;
         width: 100%;
-        background-image: url("telasite1920.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        justify-content: center;
+        align-items: center;
+        padding: clamp(1rem, 2vw, 2.5rem);
+        background: linear-gradient(180deg, #0a0a0a 0%, #1f1f1f 100%);
       }
 
       main {
         flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero {
+        width: min(100%, 1200px);
+      }
+
+      .hero__image {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: clamp(0px, 1vw, 16px);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 0;
+          background: #000;
+        }
+
+        main {
+          width: 100%;
+        }
+
+        .hero {
+          width: 100%;
+        }
       }
 
       .visually-hidden {
@@ -51,6 +83,18 @@
   <body>
     <main>
       <h1 class="visually-hidden">DL Locadora</h1>
+      <section class="hero" aria-labelledby="hero-heading">
+        <h2 id="hero-heading" class="visually-hidden">Apresentação visual da DL Locadora</h2>
+        <picture>
+          <source srcset="telasite1920.png" media="(max-width: 1024px)" />
+          <img
+            src="telasite 2400x1920.png"
+            alt="Página inicial da DL Locadora com destaque para as ofertas e serviços"
+            class="hero__image"
+            loading="lazy"
+          />
+        </picture>
+      </section>
     </main>
   </body>
 </html>
