@@ -3,61 +3,271 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DL Locadora</title>
+    <title>DL Locadora — Em breve</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      :root {
+        --color-background: #f2f4f9;
+        --color-navy: #0d2346;
+        --color-yellow: #ffce32;
+        --color-silver: #adb5c5;
+        --color-text: #0f172a;
+        --color-muted: #4b5563;
+        --max-width: min(1080px, 92vw);
+        font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
       *,
       *::before,
       *::after {
         box-sizing: border-box;
       }
 
-      html,
       body {
         min-height: 100vh;
         margin: 0;
-      }
-
-      body {
         display: flex;
-        width: 100%;
-        justify-content: center;
         align-items: center;
-        padding: clamp(1rem, 2vw, 2.5rem);
-        background: linear-gradient(180deg, #0a0a0a 0%, #1f1f1f 100%);
+        justify-content: center;
+        padding: clamp(1.5rem, 3vw, 3rem);
+        background:
+          /* Textura suave ao fundo */
+          radial-gradient(circle at 10% 20%, rgba(13, 35, 70, 0.07) 0, transparent 55%),
+          radial-gradient(circle at 90% 80%, rgba(255, 206, 50, 0.12) 0, transparent 65%),
+          var(--color-background);
       }
 
       main {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .hero {
-        width: min(100%, 1200px);
-      }
-
-      .hero__image {
         width: 100%;
-        height: auto;
-        display: block;
-        border-radius: clamp(0px, 1vw, 16px);
-        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
       }
 
-      @media (max-width: 480px) {
-        body {
-          padding: 0;
-          background: #000;
-        }
+      .coming-soon {
+        position: relative;
+        display: grid;
+        gap: clamp(1.75rem, 4vw, 2.75rem);
+        margin: 0 auto;
+        padding: clamp(1.75rem, 3vw, 3.5rem);
+        max-width: var(--max-width);
+        background: linear-gradient(132deg, #ffffff 0%, #f6f8fc 70%);
+        border-radius: clamp(18px, 3vw, 28px);
+        overflow: hidden;
+        box-shadow: 0 40px 60px -35px rgba(13, 35, 70, 0.55);
+      }
 
-        main {
-          width: 100%;
-        }
+      /* Faixas diagonais inspiradas no layout original */
+      .coming-soon::before,
+      .coming-soon::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        transform-origin: center;
+      }
 
-        .hero {
-          width: 100%;
-        }
+      .coming-soon::before {
+        background: linear-gradient(135deg, transparent 35%, rgba(13, 35, 70, 0.75) 36%, rgba(13, 35, 70, 0.85) 52%, transparent 53%);
+        transform: translateY(-35%) rotate(-7deg);
+        opacity: 0.9;
+      }
+
+      .coming-soon::after {
+        background: linear-gradient(135deg, transparent 55%, rgba(255, 206, 50, 0.85) 56%, rgba(255, 206, 50, 0.95) 70%, transparent 72%);
+        transform: translateY(25%) rotate(-9deg);
+        mix-blend-mode: multiply;
+        opacity: 0.9;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: clamp(1.5rem, 3vw, 2.5rem);
+      }
+
+      .cars-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: clamp(1rem, 2vw, 1.5rem);
+        justify-items: center;
+      }
+
+      .cars-row img {
+        width: min(100%, clamp(130px, 22vw, 200px));
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 22px rgba(15, 23, 42, 0.3));
+        transition: transform 0.35s ease;
+      }
+
+      .cars-row img:hover {
+        transform: translateY(-6px);
+      }
+
+      .headline {
+        text-align: center;
+        color: var(--color-text);
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .headline span {
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+        color: var(--color-muted);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .headline h1 {
+        margin: 0;
+        font-size: clamp(2.25rem, 5vw, 3.85rem);
+        line-height: 1.05;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .brand {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.55rem;
+        margin: 0 auto;
+        padding: 1.25rem clamp(1.5rem, 4vw, 3rem);
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: clamp(12px, 2vw, 18px);
+        box-shadow: 0 20px 35px -25px rgba(13, 35, 70, 0.75);
+        position: relative;
+      }
+
+      .brand::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        border: 1.5px solid rgba(13, 35, 70, 0.12);
+        pointer-events: none;
+      }
+
+      .brand__flag {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: clamp(0.85rem, 2vw, 1.4rem);
+      }
+
+      .brand__flag::before {
+        content: "";
+        width: clamp(38px, 7vw, 56px);
+        height: clamp(7px, 1.4vw, 11px);
+        background: var(--color-yellow);
+        border-radius: 999px;
+        box-shadow: 0 5px 14px rgba(255, 206, 50, 0.45);
+      }
+
+      .brand__flag::after {
+        content: "";
+        width: clamp(38px, 7vw, 56px);
+        height: clamp(7px, 1.4vw, 11px);
+        background: linear-gradient(90deg, var(--color-navy), var(--color-silver));
+        border-radius: 999px;
+        opacity: 0.75;
+      }
+
+      .brand__name {
+        display: flex;
+        gap: clamp(0.4rem, 1vw, 0.7rem);
+        align-items: baseline;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .brand__name span:first-child {
+        font-size: clamp(1.9rem, 4vw, 2.6rem);
+        color: var(--color-navy);
+        letter-spacing: 0.08em;
+      }
+
+      .brand__name span:last-child {
+        font-size: clamp(1.05rem, 2.5vw, 1.45rem);
+        color: var(--color-silver);
+        letter-spacing: 0.45em;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(1.25rem, 3vw, 2.75rem);
+        text-align: left;
+      }
+
+      .contact__item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.65rem clamp(0.75rem, 2vw, 1rem);
+        align-items: center;
+        color: var(--color-text);
+        text-decoration: none;
+        max-width: min(320px, 80vw);
+      }
+
+      .contact__item span {
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        line-height: 1.4;
+      }
+
+      .contact__title {
+        font-weight: 600;
+        margin-bottom: 0.1rem;
+        display: block;
+      }
+
+      .contact__phone {
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        font-weight: 700;
+        color: var(--color-navy);
+      }
+
+      .contact__icon {
+        width: clamp(38px, 6vw, 46px);
+        height: clamp(38px, 6vw, 46px);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(13, 35, 70, 0.12);
+        color: var(--color-navy);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      }
+
+      .contact__icon svg {
+        width: clamp(18px, 3vw, 22px);
+        height: clamp(18px, 3vw, 22px);
+        fill: currentColor;
+      }
+
+      .contact__item--whatsapp {
+        background: rgba(255, 255, 255, 0.82);
+        padding: clamp(0.9rem, 2vw, 1.2rem) clamp(1rem, 3vw, 1.6rem);
+        border-radius: 16px;
+        box-shadow: 0 18px 30px -24px rgba(13, 35, 70, 0.6);
+      }
+
+      .contact__item--instagram {
+        color: var(--color-muted);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      .contact__item--instagram:hover {
+        color: var(--color-navy);
+        transform: translateY(-3px);
       }
 
       .visually-hidden {
@@ -72,28 +282,164 @@
         border: 0;
       }
 
-      @supports (height: 100dvh) {
-        html,
+      @media (max-width: 900px) {
+        .coming-soon {
+          padding: clamp(1.5rem, 6vw, 2.25rem);
+        }
+
+        .coming-soon::before {
+          transform: translateY(-45%) rotate(-10deg);
+        }
+
+        .coming-soon::after {
+          transform: translateY(35%) rotate(-12deg);
+        }
+
+        .brand__flag {
+          flex-direction: column;
+        }
+
+        .brand__flag::before,
+        .brand__flag::after {
+          width: clamp(44px, 12vw, 68px);
+        }
+      }
+
+      @media (max-width: 640px) {
         body {
-          min-height: 100dvh;
+          padding: clamp(1.2rem, 4vw, 1.75rem);
+        }
+
+        .coming-soon {
+          border-radius: clamp(16px, 4vw, 22px);
+        }
+
+        .coming-soon::before {
+          opacity: 0.7;
+        }
+
+        .coming-soon::after {
+          opacity: 0.65;
+        }
+
+        .cars-row {
+          grid-template-columns: repeat(2, minmax(120px, 1fr));
+        }
+
+        .brand {
+          width: 100%;
+        }
+
+        .contact {
+          justify-content: stretch;
+        }
+
+        .contact__item {
+          max-width: unset;
+          width: 100%;
+        }
+
+        .contact__item--instagram {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .cars-row {
+          grid-template-columns: repeat(2, minmax(110px, 1fr));
+        }
+
+        .headline h1 {
+          font-size: clamp(2.1rem, 9vw, 2.55rem);
+        }
+
+        .brand__name span:last-child {
+          letter-spacing: 0.32em;
         }
       }
     </style>
   </head>
   <body>
     <main>
-      <h1 class="visually-hidden">DL Locadora</h1>
-      <section class="hero" aria-labelledby="hero-heading">
-        <h2 id="hero-heading" class="visually-hidden">Apresentação visual da DL Locadora</h2>
-        <picture>
-          <source srcset="telasite1920.png" media="(max-width: 1024px)" />
-          <img
-            src="telasite 2400x1920.png"
-            alt="Página inicial da DL Locadora com destaque para as ofertas e serviços"
-            class="hero__image"
-            loading="lazy"
-          />
-        </picture>
+      <h1 class="visually-hidden">DL Locadora — Novo site em breve</h1>
+      <section class="coming-soon" aria-labelledby="headline">
+        <div class="content">
+          <!-- Linha com os quatro carros destacados -->
+          <div class="cars-row" aria-label="Frota de veículos DL Locadora">
+            <img
+              src="https://images.unsplash.com/photo-1570294646112-27ce4f174f4b?auto=format&fit=crop&w=800&q=80"
+              alt="Carro esportivo vermelho"
+              loading="lazy"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=800&q=80"
+              alt="SUV azul"
+              loading="lazy"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1617813489858-a0fc8938de5d?auto=format&fit=crop&w=800&q=80"
+              alt="Carro branco"
+              loading="lazy"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80"
+              alt="Sedã preto"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Mensagem principal da página -->
+          <div class="headline" id="headline">
+            <span>Estamos preparando novidades</span>
+            <h2>em breve o novo site</h2>
+          </div>
+
+          <!-- Bloco com a assinatura visual da marca -->
+          <div class="brand" aria-label="Logotipo DL Locadora">
+            <div class="brand__flag" aria-hidden="true"></div>
+            <div class="brand__name">
+              <span>DL</span>
+              <span>Locadora</span>
+            </div>
+          </div>
+
+          <!-- Informações de contato principais -->
+          <div class="contact">
+            <a class="contact__item contact__item--whatsapp" href="https://wa.me/5551998536700">
+              <span class="contact__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                  <path
+                    d="M12.04 2C6.58 2 2.12 6.43 2.12 11.87c0 2.09.65 4.03 1.77 5.63L2 22l4.61-1.47c1.54.84 3.31 1.32 5.19 1.32 5.46 0 9.92-4.43 9.92-9.87C21.72 6.43 17.27 2 11.81 2h.23zm4.99 14.18c-.2.56-1.18 1.07-1.66 1.12-.43.05-.98.07-1.58-.1-.36-.1-.82-.27-1.41-.53-2.49-1.08-4.1-3.6-4.22-3.76-.12-.16-1-1.33-1-2.55 0-1.23.63-1.83.86-2.08.2-.22.53-.32.86-.32.1 0 .2 0 .3.01.26.01.39.03.57.45.2.48.67 1.67.73 1.8.06.13.1.29.02.45-.07.16-.12.26-.22.41-.12.19-.26.34-.4.55-.12.16-.26.34-.11.65.15.32.67 1.1 1.43 1.78.98.87 1.8 1.15 2.12 1.29.32.13.51.11.7-.07.22-.21.5-.55.79-.9.2-.26.45-.29.7-.2.27.1 1.72.81 2.02.96.3.15.5.22.57.34.07.16.07.63-.13 1.19z"
+                  ></path>
+                </svg>
+              </span>
+              <span>
+                <span class="contact__title">Chame no whats e faça sua cotação!</span>
+                <span class="contact__phone">51&nbsp;99853.6700</span>
+              </span>
+            </a>
+            <a
+              class="contact__item contact__item--instagram"
+              href="https://www.instagram.com/dl.locadora"
+            >
+              <span class="contact__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                  <path
+                    d="M12 2.16c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.402.61.21 1.04.46 1.49.91.45.45.7.88.91 1.49.16.46.346 1.26.402 2.43.058 1.27.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.402 2.43-.21.61-.46 1.04-.91 1.49-.45.45-.88.7-1.49.91-.46.16-1.26.346-2.43.402-1.27.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.402-.61-.21-1.04-.46-1.49-.91-.45-.45-.7-.88-.91-1.49-.16-.46-.346-1.26-.402-2.43-.058-1.27-.07-1.65-.07-4.85s.012-3.584.07-4.85c.056-1.17.24-1.97.402-2.43.21-.61.46-1.04.91-1.49.45-.45.88-.7 1.49-.91.46-.16 1.26-.346 2.43-.402C8.416 2.172 8.8 2.16 12 2.16m0-2.16C8.735 0 8.332.014 7.052.072 5.77.13 4.89.323 4.13.59c-.8.28-1.48.65-2.16 1.33C1.29 2.6.92 3.28.64 4.08.373 4.84.18 5.72.123 7.002.064 8.282.05 8.685.05 12s.014 3.718.072 4.998c.058 1.282.251 2.162.518 2.922.28.8.65 1.48 1.33 2.16.68.68 1.36 1.05 2.16 1.33.76.267 1.64.46 2.922.518C8.282 23.936 8.685 23.95 12 23.95s3.718-.014 4.998-.072c1.282-.058 2.162-.251 2.922-.518.8-.28 1.48-.65 2.16-1.33.68-.68 1.05-1.36 1.33-2.16.267-.76.46-1.64.518-2.922.058-1.28.072-1.683.072-4.998s-.014-3.718-.072-4.998c-.058-1.282-.251-2.162-.518-2.922-.28-.8-.65-1.48-1.33-2.16-.68-.68-1.36-1.05-2.16-1.33-.76-.267-1.64-.46-2.922-.518C15.718.014 15.315 0 12 0z"
+                  ></path>
+                  <path
+                    d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162A3.999 3.999 0 1 1 12 7a3.999 3.999 0 0 1 0 7.999z"
+                  ></path>
+                  <circle cx="18.406" cy="5.594" r="1.44"></circle>
+                </svg>
+              </span>
+              <span>
+                <span class="contact__title">Siga nossas novidades no Instagram</span>
+                <span>@dl.locadora</span>
+              </span>
+            </a>
+          </div>
+        </div>
       </section>
     </main>
   </body>
