@@ -77,12 +77,13 @@
         transition: transform 0.3s ease, filter 0.3s ease;
       }
 
-      .hero__button img {
+      .hero_button img {
+        width: 85%;        /* reduz e mantém proporcional */
+        max-width: 300px;  /* limite absoluto */
+        height: auto;      /* mantém proporção */
+        margin: 0 auto;    /* garante centralização */
         display: block;
-        width: clamp(216px, 66vw, 450px);
-        height: auto;
-        filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.35));
-      }
+    }
 
       .hero__button:hover,
       .hero__button:focus-visible {
@@ -119,6 +120,7 @@
           align-items: center;
           gap: clamp(1rem, 6vw, 1.75rem);
           width: min(320px, 100%);
+          margin-top: 20vh;
           margin-inline: auto;
         }
 
@@ -127,7 +129,7 @@
         }
 
         .hero__button img {
-          width: clamp(264px, 120vw, 450px);
+          width: clamp(180px, 65vw, 300px);
         }
       }
 
