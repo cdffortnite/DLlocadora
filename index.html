@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DL Locadora</title>
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        width: 100%;
+        background-image: url("telasite1920.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @supports (height: 100dvh) {
+        html,
+        body {
+          min-height: 100dvh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="visually-hidden">DL Locadora</h1>
+    </main>
+  </body>
+</html>
